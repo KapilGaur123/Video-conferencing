@@ -12,9 +12,10 @@ const VideoCallScreen = ({ streamRef, localVideoRef, remoteStreams }) => {
   return (
     <div className="video-container">
       <VideoPlayer localVideoRef={localVideoRef} />
-      {Object.entries(remoteStreams).map(([socketId, stream]) => (
-        <VideoPlayer key={socketId} localVideoRef={stream} />
-      ))}
+      {remoteStreams.current && Object.entries(remoteStreams.current).length > 0 &&
+        Object.entries(remoteStreams).map(([socketId, stream]) => (
+          <VideoPlayer key={socketId} localVideoRef={stream} />
+        ))}
     </div>
   );
 };

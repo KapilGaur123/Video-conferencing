@@ -1,28 +1,24 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import LogIn from "./screens/authentication/LogIn";
-import SignUp from "./screens/authentication/SignUp";
-import Welcome from "./screens/mainPages/Welcome";
-import PrivateRoutes from "./PublicPrivateRoutes/PrivateRoutes";
-import PublicRoutes from "./PublicPrivateRoutes/PublicRoutes";
+import LogIn from "./screens/authentication/LogIn.jsx";
+import SignUp from "./screens/authentication/SignUp.jsx";
+import Welcome from "./screens/mainPages/Welcome.jsx";
+import PrivateRoutes from "./PublicPrivateRoutes/PrivateRoutes.jsx";
+import PublicRoutes from "./PublicPrivateRoutes/PublicRoutes.jsx";
 import io from "socket.io-client";
-import VideoCall from "./PublicPrivateRoutes/VideoCall";
-import VideoCallScreen from "./screens/JoinCall/VideoCallScreen";
-import CreateCall from "./screens/JoinCall/CreateCall";
-import JoinCallRouter from "./PublicPrivateRoutes/JoinCallRouter";
-import JoinCall from "./screens/JoinCall/joinCall";
+import VideoCall from "./PublicPrivateRoutes/VideoCall.jsx";
+import VideoCallScreen from "./screens/JoinCall/VideoCallScreen.jsx";
+import CreateCall from "./screens/JoinCall/CreateCall.jsx";
+import JoinCallRouter from "./PublicPrivateRoutes/JoinCallRouter.jsx";
+import JoinCall from "./screens/JoinCall/JoinCall.jsx";
 
 // const a = "https://webrtcapi.anayatcoders.com/"
 // const a = "http://localhost:5000";
 //const a = "http://192.168.1.14:5000"
 const a = "https://coercively-ulcerous-cecille.ngrok-free.dev";
 
-const socket = io(a, {
-  reconnection: true,
-  reconnectionAttempts: Infinity,
-  randomizationFactor: 0.5,
-});
+const socket = io(a);
 
 function App() {
   const localVideoRef = useRef(null);
@@ -33,6 +29,8 @@ function App() {
 
   const [roomId, setRoomId] = useState(null);
   const [otherRoomId, setOtherRoomId] = useState(null);
+
+  const [hungup, setHungup] = useState(false)
 
   const config = {
     iceServers: [{ urls: "stun:stun.l.google.com:19302" }],
@@ -61,7 +59,9 @@ function App() {
       video: true,
     });
 
+    console.log("app one ik")
     localVideoRef.current.srcObject = streamRef;
+    console.log("app one ik")
   };
 
   const peerConnection = (socketId) => {
