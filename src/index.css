@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+
+/*fa fas icon index.css */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  transition: all 3ms ease;
+}
+
+:root {
+  --bg-gradiant-color: linear-gradient(
+    to right top,
+    #4b55f6,
+    #6d52f1,
+    #864fec,
+    #9a4ce6,
+    #ab4ae0,
+    #d13dcc,
+    #ec33b5,
+    #ff349e,
+    #ff4e72,
+    #ff754d,
+    #fb9a34,
+    #dfbb34
+  );
+}
+
+.main-page-bg{
+  background: rgb(225 225 225);
+}
+
+.full-page-setup {
+  width: 100%;
+  height: 100vh;
+}
+
+.flex-comman {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.flex-dicraction-column {
+  flex-direction: column;
+}
+
+.main-btn-desing {
+  padding: 12px 20px;
+  margin-top: 30px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  background: rgb(108, 233, 108);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  text-wrap: nowrap;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.h1-heading {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #1f2937;
+  text-align: center;
+  filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.07))
+    drop-shadow(0 2px 2px rgba(0, 0, 0, 0.06));
+}
+
+.custom-gap-10{
+  gap: 10px;
+}
+
+.justify-left {
+  justify-content: flex-start;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.border-botton {
+  border-bottom: 0.5px solid rgb(228, 226, 226);
+}
+
+.border-top {
+  border-top: 0.5px solid rgb(228, 226, 226);
+}
+
+.decoration-none {
+  text-decoration: none;
+  list-style: none;
+  color: black;
+}
+
+.btn-bg-handle {
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+}
+
+.btn-bg-handle::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--bg-gradiant-color);
+  /* filter: blur(10px); */
+  opacity: 0.8;
+  z-index: -1;
+}
+
+.comman-input{
+  width: 100%;
+  max-width: 320px;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #111827;
+  background-color: #ffffff;
+
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+
+  outline: none;
+  transition: all 0.3s ease;
+}
